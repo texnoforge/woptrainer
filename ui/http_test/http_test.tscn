@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://fonts/FontH2.tres" type="DynamicFont" id=1]
+[ext_resource path="res://ui/http_test/http_test.gd" type="Script" id=2]
+
+[node name="HTTPTest" type="Label"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 13.0
+margin_top = -39.0
+margin_right = 75.0
+margin_bottom = -5.0
+custom_fonts/font = ExtResource( 1 )
+text = "HTTP test"
+script = ExtResource( 2 )
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
