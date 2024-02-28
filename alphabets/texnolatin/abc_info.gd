@@ -1,0 +1,28 @@
+extends Reference
+
+const SYMBOLS = [
+	'fire',
+	'ice',
+	'water',
+	'air',
+	'electro',
+	'earth',
+	'life',
+	'death',
+	'bolt',
+	'ball',
+	'space',
+	'cone',
+	'beam',
+	'self',
+	'friend',
+	'enemy',
+	'close',
+	'far',
+	'strong',
+	'weak',
+	'big',
+	'small',
+	'fast',
+	'slow',
+]

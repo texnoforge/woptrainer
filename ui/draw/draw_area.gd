@@ -6,6 +6,11 @@ var is_drawing = false
 var curve = PoolVector2Array()
 var curves = []
 
+export var line_width = 5
+export var point_r = 1
+export var line_color = Color.white
+export var point_color = Color.red
+
 
 func _gui_input(event):
 	if event is InputEventMouseMotion:
@@ -29,9 +34,9 @@ func _draw():
 	# curves
 	for c in curves + [curve]:
 		if c.size() >= 2:
-			draw_polyline(c, Color.white, 2, true)
+			draw_polyline(c, Color.white, line_width, true)
 		for p in c:
-			draw_circle(p, 1, Color.red)
+			draw_circle(p, point_r, Color.red)
 
 
 func curves_json():
@@ -48,13 +53,11 @@ func clear():
 	is_drawing = false
 	curve = PoolVector2Array()
 	curves = []
-	$Info.visible = true
 	update()
 
 
 func start_drawing():
 	is_drawing = true
-	$Info.visible = false
 
 
 func end_drawing():

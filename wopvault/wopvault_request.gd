@@ -10,17 +10,22 @@ func get_url(path):
 
 func vault_status():
 	print("Vault status request test in progres...")
-	request(get_url('status/'))
+	var r = request(get_url('status/'))
+	assert(r == OK)
 
 
-func submit_drawing(curves, tag=null):
+func submit_drawing(curves, symbol, tag=null):
 	var n = 0
 	for c in curves:
 		n += len(c)
-	print("SUBMIT DRAWING: %s points, %s curves" % [n, len(curves)])
-	var url = get_url('submit/drawing/%s/test/' % abc)
+
+	var tag_str = ''
+	if tag:
+		tag_str = '[%s]' % tag
+	print("SUBMIT DRAWING: %s%s: %s points, %s curves" % [symbol, tag_str, n, len(curves)])
+	var url = get_url('submit/drawing/%s/%s/' % [abc, symbol])
 	if tag:
 		url += '?tag=%s' % tag
 	var body = to_json({'curves': curves})
-	request(url, [], false, HTTPClient.METHOD_POST, body)
-
+	var r = request(url, [], false, HTTPClient.METHOD_POST, body)
+	assert(r == OK)
