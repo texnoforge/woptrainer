@@ -11,6 +11,9 @@ onready var n_sent_label = $HBoxStats/LabelNSent
 onready var help_scene = $HelpScene
 
 var n_sent = 0
+var n_symbols = 0
+var i_symbol = 0
+var symbols = []
 
 const GOOD_COLOR = Color("70ff4d")
 const BAD_COLOR = Color("ff3333")
@@ -98,6 +101,7 @@ func _on_request_completed(_result, response_code, _headers, body):
 	react_bar.status.add_color_override("font_color", color)
 	react_bar.status.modulate.a = 1.0
 
+
 func _on_request_start():
 	react_bar.status.modulate.a = 0.0
 	react_bar.good_button.modulate.a = 0.0
@@ -106,7 +110,14 @@ func _on_request_start():
 
 func next_symbol():
 	react_bar.buttons.modulate.a = 0.0
-	symbol = abc_info.SYMBOLS[randi() % len(abc_info.SYMBOLS)]
+	if i_symbol >= n_symbols:
+		symbols = abc_info.SYMBOLS
+		symbols.shuffle()
+		n_symbols = len(symbols)
+		i_symbol = 0
+
+	symbol = symbols[i_symbol]
+	i_symbol += 1
 	symbol_tex.set_symbol(symbol)
 
 
