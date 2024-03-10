@@ -1,0 +1,118 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://fonts/FontH1.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/FontH2.tres" type="DynamicFont" id=2]
+[ext_resource path="res://fonts/FontDefault.tres" type="DynamicFont" id=3]
+[ext_resource path="res://ui/help/help_scene.gd" type="Script" id=4]
+
+[node name="HelpScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="BG" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.952941 )
+
+[node name="Center" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxTop" type="VBoxContainer" parent="Center"]
+margin_left = 312.0
+margin_top = 32.0
+margin_right = 712.0
+margin_bottom = 767.0
+
+[node name="LabelH" type="Label" parent="Center/VBoxTop"]
+margin_right = 400.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 1 )
+text = "Words of Power Trainer"
+
+[node name="LabelSubH" type="Label" parent="Center/VBoxTop"]
+margin_top = 49.0
+margin_right = 400.0
+margin_bottom = 83.0
+custom_fonts/font = ExtResource( 2 )
+text = "TexnoLatin Edition"
+
+[node name="Content" type="RichTextLabel" parent="Center/VBoxTop"]
+margin_top = 87.0
+margin_right = 400.0
+margin_bottom = 735.0
+grow_horizontal = 2
+rect_min_size = Vector2( 400, 0 )
+custom_fonts/normal_font = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "
+By drawing the symbols you're shown
+you're helping [url=https://texnoforge.dev/]texnoforge[/url] with gathering
+training data for symbol recognition models.
+
+More training data means better models.
+Better models mean smooth experience
+with [url=https://texnoforge.dev/words-of-power/]Words of Power[/url].
+
+When you press GOOD or BAD button,
+drawing is sent as a series of points
+(anonymously, no other data is sent)
+to [url=https://wopvault.texnoforge.dev/]Words of Power Vault[/url] server for processing.
+
+The alphabet you're drawing is called [url=https://github.com/texnoforge/texnolatin]TexnoLatin[/url]
+and it's going to be a reference [url=https://texnoforge.github.io/texnomagic/]TexnoMagic[/url] alphabet
+serving as a default alphabet for [url=https://texnoforge.dev/words-of-power/]Words of Power[/url].
+
+You can see fancy stats about collected drawings
+in the [url=https://wopvault.texnoforge.dev/report/]Words of Power Vault report[/url].
+
+Thanks a LOT for contributing <3
+
+
+
+
+"
+text = "
+By drawing the symbols you're shown
+you're helping texnoforge with gathering
+training data for symbol recognition models.
+
+More training data means better models.
+Better models mean smooth experience
+with Words of Power.
+
+When you press GOOD or BAD button,
+drawing is sent as a series of points
+(anonymously, no other data is sent)
+to Words of Power Vault server for processing.
+
+The alphabet you're drawing is called TexnoLatin
+and it's going to be a reference TexnoMagic alphabet
+serving as a default alphabet for Words of Power.
+
+You can see fancy stats about collected drawings
+in the Words of Power Vault report.
+
+Thanks a LOT for contributing <3
+
+
+
+
+"
+fit_content_height = true
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -198.0
+margin_top = -90.0
+margin_right = 202.0
+margin_bottom = -37.0
+grow_horizontal = 2
+custom_fonts/font = ExtResource( 2 )
+text = "OK, let's draw Magic!"
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

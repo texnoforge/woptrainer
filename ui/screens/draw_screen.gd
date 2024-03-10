@@ -8,6 +8,7 @@ onready var react_bar = $ReactBar
 onready var symbol_tex = $MarginMid/SymbolTex
 onready var abc_info = AbcInfo.new()
 onready var n_sent_label = $HBoxStats/LabelNSent
+onready var help_scene = $HelpScene
 
 var n_sent = 0
 
@@ -41,6 +42,8 @@ func _ready():
 	randomize()
 	next_symbol()
 	request.vault_status()
+
+	help_scene.visible = true
 
 
 func _on_good_pressed():
@@ -105,3 +108,7 @@ func next_symbol():
 	react_bar.buttons.modulate.a = 0.0
 	symbol = abc_info.SYMBOLS[randi() % len(abc_info.SYMBOLS)]
 	symbol_tex.set_symbol(symbol)
+
+
+func _on_ShowHelp_pressed():
+	help_scene.visible = true

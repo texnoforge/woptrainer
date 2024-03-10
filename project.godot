@@ -15,6 +15,10 @@ run/main_scene="res://ui/screens/draw_screen.tscn"
 config/icon="res://icons/icon.png"
 config/windows_native_icon="res://icons/icon.ico"
 
+[display]
+
+window/size/height=800
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
