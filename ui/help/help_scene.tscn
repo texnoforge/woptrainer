@@ -115,4 +115,5 @@ grow_horizontal = 2
 custom_fonts/font = ExtResource( 2 )
 text = "OK, let's draw Magic!"
 
+[connection signal="meta_clicked" from="Center/VBoxTop/Content" to="." method="_on_Content_meta_clicked"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
